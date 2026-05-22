@@ -3,7 +3,7 @@
 
 ### DBMS
 * 데이터베이스 관리 목적 프로그램
-  * 관게형: MySQL, Oracle
+  * 관계형: MySQL, Oracle
   * NoSQL: Redis, Mongo
 
 ### 파일에 저장하는 경우 단점
