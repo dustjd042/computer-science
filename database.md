@@ -3,7 +3,7 @@
 
 ### DBMS
 * 데이터베이스 관리 목적 프로그램
-  * 관게형: MySQL, Oracle
+  * 관계형: MySQL, Oracle
   * NoSQL: Redis, Mongo
 
 ### 파일에 저장하는 경우 단점
@@ -53,7 +53,7 @@
 
 ### SQL
 * DDL: 데이터 정의
-* DML: 제이터 조작
+* DML: 데이터 조작
 * DCL: 데이터 제어
 * TCL: 트랜젝션 제어
 
