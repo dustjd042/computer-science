@@ -279,3 +279,41 @@
 * Server Hello: 선택된 TLS 버전 및 암호화 알고리즘, 해시 함수 전달 (서버 -> 클라이언트)
 * Certificate: 인증 기관을 통해 발급 받은 인증서를 통해 서버 입증 (서버 -> 클라이언트)
 * Message: 메시지 인증 코드(MAC) 및 해시 함수를 통해 매시지 암호화 (서버 <-> 클라이언트)
+
+### 웹소켓
+* 양방향 통신
+* 실시간 네트워크
+* 여러개 프레임 모여 메시지 구성
+* 프레임 경우 헤더, 페이로드 구성
+
+### 웹소켓 단점
+* 웹소켓 경우 HTML5 이후 표준 스팩에 추가
+* 문자열만 주고 받을 수 있다.
+* 별도 형식이 정해져 있지 않기 때문에 어플리케이션에서 해석이 어렵다.
+* 서브 프로토콜 (STOMP) 통해 별도에 메시지 형태 정의
+
+### STOMP
+* 채팅 통신을 위한 형식 정의
+* Pub/Sub(발행/구독) 구조
+* 약간의 오버헤드 메시지마다 명령어와 헤더 정보 존재
+
+### 웹소켓 연결 수립 과정
+* HTTP, HTTPS 활용 핸드셰이크
+* 클라이언트 웹소켓 연결 요청
+  * GET 
+  * HTTP/1.1 
+  * Upgrade: websocket 
+  * Connection: Upgrade
+  * Sec-WebSocket-Key: 랜덤 생성값 Base64 인코딩
+* 서버 웹소켓 연결 응답
+  * 101 Switching Protocols
+  * Upgrade: websocket
+  * Connection: Upgrade
+  * Sec-WebSocket-Accept: (Sec-WebSocket-Key + GUID) SHA-1 해시 계산, Base64 인코딩
+* WS, WSS 전환
+* Close frame 통해 연결 종료
+
+### 웹소켓 재연결 방식
+* 웹소켓 연결 종료 상태 코드 활용
+* 웹소켓 라이브러리 재연결 기능 활용
+* 특정 상황에 맞게 직접 재연결 처리
